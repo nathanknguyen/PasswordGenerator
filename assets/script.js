@@ -8,20 +8,22 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  window.alert("Now ");
+  window.alert("Now click return or press the button to see your randomly generated password");
 
 }
 
 function generatePassword() {
-  var alphabet = "abcdefghijklmnopqrstuvwxyz";
+  var charOptions = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var password = "";
   var passwordLength = window.prompt("Choose a number between 8 and 128. That will be the length of your password");
-  var characterTypes = window.prompt("Now choose the special character that you want included in your random password. Choose between ");
-  var 
+  var characterTypes = window.prompt("Now choose the special characters that you want included in your random password without any spaces. If you want capital letters you must type every letter of the alphabet in capital letters in your response. Choose between these : !, @, #, $, %, &, ?");
+  charOptions += characterTypes;
+  
   for (var i = 0; i < passwordLength - 1; i++) {
-    password += alphabet[Math.floor(Math.random() * alphabet.length)];
+    password += charOptions[Math.floor(Math.random() * charOptions.length)];
+    
   }
-
+  password += charOptions[Math.floor(Math.random() * charOptions.length)];
   return password;
 
 }
